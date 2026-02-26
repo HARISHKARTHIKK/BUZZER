@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buzzer - Cine Phile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="winnerBanner" class="winner-banner">
+        <span>Winner: <span id="bannerWinnerName">-</span></span>
+    </div>
+
+    <div id="countdownOverlay" class="countdown-overlay">5</div>
+
+    <div class="container buzzer-container">
+        <div class="buzzer-team-name">Team: <span id="displayTeamName">...</span></div>
+
+        <button id="buzzerBtn" class="buzzer-btn" disabled>BUZZ</button>
+
+        <div id="statusMessage" class="status-message">
+            Waiting for Host...
+        </div>
+
+        <button onclick="logout()" class="btn btn-secondary"
+            style="width: auto; padding: 0.5rem 1rem; font-size: 0.8rem;">Change Team</button>
+    </div>
+
+    <audio id="buzzerSound" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3"></audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="buzzer.js"></script>
+    <script>
+        function logout() {
+            localStorage.removeItem('teamName');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+
+</html>

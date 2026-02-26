@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine Phile – Audio Buzzer Round</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Audio Buzzer Round</h2>
+        <h1>CINE PHILE</h1>
+        
+        <div class="glass-card">
+            <form id="joinForm">
+                <input type="text" id="teamName" placeholder="ENTER TEAM NAME" required autocomplete="off">
+                <button type="submit" class="btn btn-primary">JOIN ROUND</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script>
+        document.getElementById('joinForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const teamName = document.getElementById('teamName').value.trim();
+            if (teamName) {
+                localStorage.setItem('teamName', teamName);
+                window.location.href = 'buzzer.html';
+            }
+        });
+
+        // If team name already exists, redirect
+        if (localStorage.getItem('teamName')) {
+            // Optional: Auto redirect if session exists
+            // window.location.href = 'buzzer.html';
+        }
+    </script>
+</body>
+</html>
